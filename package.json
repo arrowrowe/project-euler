@@ -1,0 +1,23 @@
+{
+  "name": "project-euler",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Solutions for Project Euler.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arrowrowe/project-euler.git"
+  },
+  "author": "arrowrowe <arrowrowe@gmail.com> (https://github.com/arrowrowe)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arrowrowe/project-euler/issues"
+  },
+  "homepage": "https://github.com/arrowrowe/project-euler#readme",
+  "dependencies": {
+    "bluebird": "3.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "14": "time node --use-strict src/14"
+  }
+}
