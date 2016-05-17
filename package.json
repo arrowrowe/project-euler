@@ -14,10 +14,13 @@
   },
   "homepage": "https://github.com/arrowrowe/project-euler#readme",
   "dependencies": {
-    "bluebird": "3.3.5"
+    "bluebird": "3.3.5",
+    "request": "2.72.0"
   },
   "devDependencies": {},
   "scripts": {
-    "14": "time node --use-strict src/14"
+    "14": "time node --use-strict src/14",
+    "18": "time node --use-strict src/18",
+    "67": "time node --use-strict src/67"
   }
 }
