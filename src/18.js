@@ -1,6 +1,7 @@
 const {parse, solve} = require('./weight-triangle-path');
+const {log} = require('../util/fn');
 
-console.log(solve(parse(`
+log(solve(parse(`
   75
   95 64
   17 47 82

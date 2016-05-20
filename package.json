@@ -21,6 +21,7 @@
   "scripts": {
     "14": "time node --use-strict src/14",
     "18": "time node --use-strict src/18",
-    "67": "time node --use-strict src/67"
+    "67": "time node --use-strict src/67",
+    "96": "time node --use-strict src/96"
   }
 }
