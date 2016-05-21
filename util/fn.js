@@ -4,6 +4,8 @@ const identity = x => x;
 
 const plus = (a, b) => a + b;
 
+const sum = a => a.reduce(plus, 0);
+
 const range = function* (a, b) {
   if (b === undefined)
     [a, b] = [0, a];
@@ -28,6 +30,7 @@ module.exports = {
   curry,
   identity,
   plus,
+  sum,
   range,
   leftPad,
   numberFormat,
