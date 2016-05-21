@@ -1,3 +1,5 @@
+const {now} = require('./str');
+
 const curry = (f, ...h) => (...t) => f(...h, ...t);
 
 const identity = x => x;
@@ -13,18 +15,10 @@ const range = function* (a, b) {
     yield i;
 };
 
-const leftPad = (s, l, c=' ') => s.length < l ? c.repeat(l - s.length) + s : s;
-const numberFormat = (n, l=2) => leftPad(n.toString(), l, '0');
-
-const dateFormat = d => `\u001b[90m[` +
-  `${d.getFullYear()}/${numberFormat(d.getMonth() + 1)}/${numberFormat(d.getDate())}` +
-  ` ` +
-  `${numberFormat(d.getHours())}:${numberFormat(d.getMinutes())}:${numberFormat(d.getSeconds())}.${numberFormat(d.getMilliseconds(), 3)}` +
-  `]\u001b[39m`;
-
-const now = () => dateFormat(new Date());
-
+/* eslint-disable no-console */
 const log = (...msg) => console.log(now(), ...msg);
+
+/* eslint-enable no-console */
 
 module.exports = {
   curry,
@@ -32,9 +26,5 @@ module.exports = {
   plus,
   sum,
   range,
-  leftPad,
-  numberFormat,
-  dateFormat,
-  now,
   log,
 };

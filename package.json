@@ -17,13 +17,16 @@
     "bluebird": "3.3.5",
     "request": "2.72.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "2.10.2"
+  },
   "scripts": {
     "14": "time node --use-strict src/14",
     "18": "time node --use-strict src/18",
     "22": "time node --use-strict src/22",
     "31": "time node --use-strict src/31",
     "67": "time node --use-strict src/67",
-    "96": "time node --use-strict src/96"
+    "96": "time node --use-strict src/96",
+    "lint": "eslint src util"
   }
 }

@@ -5,5 +5,7 @@ const {log} = require('../util/fn');
 const io = require('../util/io');
 
 io.get('https://projecteuler.net/project/resources/p067_triangle.txt')
-  .then(({body}) => solve(parse(body)))
-  .then(log);
+  .get('body')
+  .then(parse)
+  .then(solve)
+  .tap(log);
