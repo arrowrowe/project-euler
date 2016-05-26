@@ -25,6 +25,7 @@
     "18": "time node --use-strict src/18",
     "22": "time node --use-strict src/22",
     "31": "time node --use-strict src/31",
+    "42": "time node --use-strict src/42",
     "67": "time node --use-strict src/67",
     "96": "time node --use-strict src/96",
     "lint": "eslint src util"
