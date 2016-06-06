@@ -1,22 +1,4 @@
-const without = (array, index) => array.slice(0, index).concat(array.slice(index + 1));
-
-function* enumerate(iterable) {
-  let index = 0;
-  for (let value of iterable)
-    yield [value, index++, iterable];
-}
-
-function* permutations(array) {
-  if (array.length === 1) {
-    yield array;
-    return;
-  }
-  for (let [currentValue, index] of enumerate(array))
-    for (let restPermutations of permutations(without(array, index)))
-      yield restPermutations.concat(currentValue);
-}
-
-const fromDigits = digits => Number(digits.map(String).join(''));
+const {permutations, fromDigits} = require('../util/math');
 
 function isPro43(digits) {
   return fromDigits(digits.slice(1, 4)) % 2 === 0 &&
@@ -31,3 +13,4 @@ function isPro43(digits) {
 for (let perm of permutations([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]))
   if (isPro43(perm))
     process.stdout.write(`${fromDigits(perm)} + `);
+process.stdout.write(`0\n`);

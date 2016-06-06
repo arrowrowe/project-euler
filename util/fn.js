@@ -15,6 +15,14 @@ const range = function* (a, b) {
     yield i;
 };
 
+function* enumerate(iterable) {
+  let index = 0;
+  for (let value of iterable)
+    yield [value, index++, iterable];
+}
+
+const without = (array, index) => array.slice(0, index).concat(array.slice(index + 1));
+
 /* eslint-disable no-console */
 const log = (...msg) => console.log(now(), ...msg);
 
@@ -26,5 +34,7 @@ module.exports = {
   plus,
   sum,
   range,
+  enumerate,
+  without,
   log,
 };
