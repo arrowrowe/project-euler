@@ -30,6 +30,7 @@
     "46": "time node --use-strict src/46",
     "67": "time node --use-strict src/67",
     "96": "time node --use-strict src/96",
+    "549": "time node --use-strict src/549",
     "lint": "eslint src util"
   }
 }
