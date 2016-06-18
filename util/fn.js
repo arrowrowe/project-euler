@@ -15,11 +15,11 @@ const range = function* (a, b) {
     yield i;
 };
 
-function* enumerate(iterable) {
+const enumerate = function* (iterable) {
   let index = 0;
   for (let value of iterable)
     yield [value, index++, iterable];
-}
+};
 
 const without = (array, index) => array.slice(0, index).concat(array.slice(index + 1));
 

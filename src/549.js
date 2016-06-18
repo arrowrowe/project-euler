@@ -4,37 +4,37 @@ const {max} = Math;
 
 const primesKnown = [];
 
-function k(n, p) {
+const getFactorRank = (n, p) => {
   let k = 0;
   while (n % p === 0) {
     n /= p;
     k++;
   }
   return k;
-}
+};
 
-function* qs(p, s) {
+const generatePrimeRanks = function* (p, s) {
   for (;;) {
     s++;
-    yield [s, k(s, p) + 1];
+    yield [s, getFactorRank(s, p) + 1];
   }
-}
+};
 
 const spKnown = new Map();
-function sp(p, q) {
+const solveForPrimePowers = (p, q) => {
   const known = spKnown.get(p);
   if (q <= known.length)
     return p * known[q - 1];
-  for (let [s, qDelta] of qs(p, known[known.length - 1])) {
+  for (let [s, qDelta] of generatePrimeRanks(p, known[known.length - 1])) {
     while (qDelta--)
       known.push(s);
     if (known.length >= q)
       break;
   }
   return p * known[q - 1];
-}
+};
 
-function s(n) {
+const solve = n => {
   let s = 0;
   for (let p of primesKnown) {
     let q = 0;
@@ -43,7 +43,7 @@ function s(n) {
       q++;
     }
     if (q) {
-      s = max(s, sp(p, q));
+      s = max(s, solveForPrimePowers(p, q));
       if (n === 1)
         break;
     }
@@ -53,13 +53,13 @@ function s(n) {
   primesKnown.push(n);
   spKnown.set(n, [1]);
   return n;
-}
+};
 
-function S(N) {
+const sumSolve = N => {
   let S = 0;
   for (let n = 2; n <= N; n++)
-    S += s(n);
+    S += solve(n);
   return S;
-}
+};
 
-log(S(100));
+log(sumSolve(100));

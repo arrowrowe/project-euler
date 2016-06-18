@@ -1,13 +1,13 @@
 const {isSqr, oddPrimeSeries} = require('../util/math');
 const {log} = require('../util/fn');
 
-function pro46() {
+const pro46 = () => {
   let n = 1;
   const ps = [];
-  const isThis = n => {
+  const isThis = m => {
     for (let q = ps.length - 1; q >= 0; q--) {
-      if (isSqr(n - ps[q])) {
-        log(`${n} = ${ps[q]} + r^2`);
+      if (isSqr(m - ps[q])) {
+        log(`${m} = ${ps[q]} + r^2`);
         return false;
       }
     }
@@ -26,6 +26,6 @@ function pro46() {
     n++;
     ps.push(p);
   }
-}
+};
 
 log(`ans = ${pro46()}`);

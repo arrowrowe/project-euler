@@ -102,7 +102,12 @@ module.exports = {
         "max-len": "off",
         "max-nested-callbacks": "error",
         "max-params": "off",
-        "max-statements": "error",
+        "max-statements": [
+            "error",
+            {
+                "max": 15
+            }
+        ],
         "max-statements-per-line": "error",
         "new-cap": "error",
         "new-parens": "error",
@@ -154,12 +159,7 @@ module.exports = {
         "no-octal-escape": "error",
         "no-param-reassign": "off",
         "no-path-concat": "error",
-        "no-plusplus": [
-            "error",
-            {
-                "allowForLoopAfterthoughts": true
-            }
-        ],
+        "no-plusplus": "off",
         "no-process-env": "error",
         "no-process-exit": "error",
         "no-proto": "error",

@@ -2,7 +2,7 @@ const {without, enumerate} = require('./fn');
 
 /** Combinations *************************************************************/
 
-function* permutations(array) {
+const permutations = function* (array) {
   if (array.length === 1) {
     yield array;
     return;
@@ -10,7 +10,7 @@ function* permutations(array) {
   for (let [currentValue, index] of enumerate(array))
     for (let restPermutations of permutations(without(array, index)))
       yield restPermutations.concat(currentValue);
-}
+};
 
 /** Number Theory ************************************************************/
 
@@ -29,7 +29,7 @@ const isOddPrime = n => {
   return true;
 };
 
-function* oddPrimeSeries() {
+const oddPrimeSeries = function* () {
   // yield 2;
   for (let p of oddPrimesKnown)
     yield p;
@@ -39,9 +39,9 @@ function* oddPrimeSeries() {
       oddPrimesKnown.push(n);
     }
   }
-}
+};
 
-/*****************************************************************************/
+/** Exports ******************************************************************/
 module.exports = {
   permutations,
   fromDigits,
