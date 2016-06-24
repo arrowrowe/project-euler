@@ -12,22 +12,24 @@ const parse = raw =>
 
 io.get('https://projecteuler.net/project/resources/p082_matrix.txt')
   .get('body')
+// require('bluebird').resolve(`
+//   131,673,234,103,18
+//   201,96,342,965,150
+//   630,803,746,422,111
+//   537,699,497,121,956
+//   805,732,524,37,331
+// `)
   .then(parse)
   .then(curry(
     shortestPathByVertex,
     {
 
-      init: ({size, visited, unvisitedDistances, encodePos, distances, valueMatrix}) => {
-        for (let i = 0; i < size; i++) {
-          visited[i][0] = true;
-          unvisitedDistances.set(
-            encodePos(i, 1),
-            distances[i][1] = (distances[i][0] = valueMatrix[i][0]) + valueMatrix[i][1]
-          );
-        }
+      init: ({distances, valueMatrix, visit}) => {
+        distances[0][0] = valueMatrix[0][0];
+        visit(0, 0);
       },
 
-      resolve: ({distances, size}) => Math.min(...distances.map(row => row[size - 1]))
+      resolve: ({distances, size}) => distances[size - 1][size - 1]
 
     }
   ))
